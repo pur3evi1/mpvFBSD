@@ -1,74 +1,28 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
-# Read `man 5 sway` for a complete reference.
-### Variables
-#
 exec autotiling
 gaps inner 8
-# Logo key. Use Mod1 for Alt.
+# Alt is what this is configured with. Keybinds are dwm inspired
 set $mod Mod1
-# Home row direction keys, like vim
+# Direction keys
 set $left h
 set $down j
 set $up k
 set $right l
-# Your preferred terminal emulator
+# Terminal emulator
 set $term foot
-# Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
+# Application launcher
 set $menu exec wofi --show | xargs swaymsg exec --
 
-### Output configuration
-#
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-# output * {
-#	mode 1920x1200@120.000Hz
-# }
+# Display config. If you have a screen with really high resolution you'll have to set the scale to 1 for it to look normal.
 exec mpvpaper -o "no-audio loop geometry=100%:100%" '*' someimage.gif &
 exec mako &
+# Remove garbage looks
 default_border none
 default_floating_border none
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
+# Example config:
+# output HDMI-A-1 resolution 1920x1080 position 1920,0
+# For output names: swaymsg -t get_outputs
 
-### Idle configuration
-#
-# Example configuration:
-#
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
-
-### Input configuration
-#
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
-
-### Key bindings
-#
-# Basics:
-#
+# Keybinds
     # Take a screenie
     bindsym $mod+o exec grim -t jpeg -q 100 -g "$(slurp)" shot.jpeg
 
@@ -78,7 +32,7 @@ default_floating_border none
     # Kill focused window
     bindsym $mod+Shift+c kill
 
-    # Start your launcher
+    # Start launcher
     bindsym $mod+p exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
@@ -91,11 +45,10 @@ default_floating_border none
     # Reload the configuration file
     bindsym $mod+Shift+r reload
 
-    # Exit sway (logs you out of your Wayland session)
+    # Exit and close garbage. I stick to dwm binds but sometimes mistakes happen where you want to move something to tag 1 but instead you close out. I suggest rebinding this.
     bindsym $mod+Shift+q exec swaymsg exit & kill `ps --aux | grep sway | grep -v grep | awk '{print $2}'` & kill `ps -aux | grep gnome-keyring | grep -v grep | awk '{print $2}'` & kill `ps -aux | grep dbus | grep -v grep | awk '{print $2}'`
-#
+
 # Moving around:
-#
     # Move your focus around
     bindsym $mod+$left focus left
     bindsym $mod+$down focus down
@@ -117,9 +70,8 @@ default_floating_border none
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
-#
+
 # Workspaces:
-#
     # Switch to workspace
     bindsym $mod+1 workspace number 1
     bindsym $mod+2 workspace number 2
@@ -142,11 +94,9 @@ default_floating_border none
     bindsym $mod+Shift+8 move container to workspace number 8
     bindsym $mod+Shift+9 move container to workspace number 9
     bindsym $mod+Shift+0 move container to workspace number 10
-    # Note: workspaces can have any name you want, not just numbers.
-    # We just use 1-10 as the default.
-#
-# Layout stuff:
-#
+    # Workspaces can have any name
+
+# Layout:
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
@@ -169,23 +119,18 @@ default_floating_border none
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
-#
-# Scratchpad:
-#
-    # Sway has a "scratchpad", which is a bag of holding for windows.
-    # You can send windows there and get them back later.
 
-    # Move the currently focused window to the scratchpad
+# How to get rid of things you don't want to see
+    # Sway scratchpad can contain the things you want to have but don't want to see.
+    # For example, say I'm running wine and getting bugs. I want to have the window
+    # in case there is a bug, but I don't want to see it all the time. Put it here.
+    # Move focus to the scratchpad
     bindsym $mod+Shift+minus move scratchpad
 
-    # Show the next scratchpad window or hide the focused scratchpad window.
-    # If there are multiple scratchpad windows, this command cycles through them.
+    # Show and cycle scratchpad
     bindsym $mod+minus scratchpad show
 
-
-#
 # Resizing containers:
-#
 mode "resize" {
     # left will shrink the containers width
     # right will grow the containers width
@@ -207,16 +152,10 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
-bindsym $mod+i exec "pgrep wf-recorder && kill `ps -aux | grep foot | awk '{print $2}'` || wf-recorder with-options"
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
+# swaybar; kind of bad, I suggest replacing it with waybar since it has a system tray
 bar {
     position top
-
     status_command while date; do sleep 1; done
-
     colors {
         statusline		#ffc0cb
 	background		#444444
