@@ -1,0 +1,6 @@
+#!/bin/tcsh
+rm -rf /tmp/`id -u`
+mkdir /tmp/`id -u` 
+chmod 700 /tmp/`id -u` 
+setenv XDG_RUNTIME_DIR /tmp/`id -u` 
+/usr/local/bin/sway
