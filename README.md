@@ -21,6 +21,7 @@ Now go into your UEFI or BIOS. Look up the brand and BIOS. You normally have to 
 Optionally note if you have UEFI or BIOS, for you can change a setting in the disk section later if you know it.
 
 **Install Process**
+
 The US keymap is the default so if you're used to that then you can just hit enter, othewise, pick your keyboard.
 
 It's suggested but not required to make up a fake domain name to put as your hostname, e.g. 'homedesk.twoplustwoisfish.homedomain'. You could name your computer a simple 'fish' if you want.
