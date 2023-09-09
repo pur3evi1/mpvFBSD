@@ -1,7 +1,6 @@
 #!/bin/tcsh
 pkg install aria2 calc doas drm-kmod dust exfat-utils firacode foot fzf gdisk gimp gnome-keyring grim htop inkscape keepassxc krita megatools mpv mpvpaper nemo neovim netsurf nheko noto-emoji noto-extra noto-hk noto-jp noto-kr noto-sc py39-autotiling py39-pip qt5-imageformats river rust slurp solvespace sway ungoogled-chromium vifm wf-recorder wine-devel wine-mono-devel wipe wireshark wofi wtype
 curl -s https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts | sed -n '/stevenblack.com/,$p' >> /etc/hosts
-cat rc.conf >> /etc/rc.conf
 mkdir -p /home/USER/.config/foot
 mkdir -p /home/USER/.config/mpv
 mkdir -p /home/USER/.config/sway
