@@ -1,5 +1,6 @@
 #!/bin/tcsh
 setenv USER `ls /home`
+sed 's/http/https/g' /etc/pkg/FreeBSD.conf > /etc/pkg/FreeBSD.conf
 pkg install aria2 calc doas drm-kmod dust exfat-utils firacode foot fzf gdisk gimp gnome-keyring grim htop inkscape keepassxc krita megatools mpv mpvpaper nemo neovim netsurf nheko noto-emoji noto-extra noto-hk noto-jp noto-kr noto-sc py39-autotiling py39-pip qt5-imageformats river rust slurp solvespace sway ungoogled-chromium vifm wf-recorder wine-devel wine-mono-devel wipe wireshark wofi wtype
 curl -s https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts | sed -n '/stevenblack.com/,$p' >> /etc/hosts
 mkdir -p /home/$USER/.config/foot
