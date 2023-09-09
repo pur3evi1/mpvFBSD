@@ -20,7 +20,7 @@ Get the contents of this repo and store it somewhere else, like on another flash
 Now go into your UEFI or BIOS. Look up the brand and BIOS. You normally have to press Esc, F2, Del, or something like repeatedly when turning the computer on to get the UEFI or BIOS. Note the name of your drive and if your system time is set to UTC or local. If you were on Linux and were not dual booting, then it was probably set to UTC, however, if you're on Windows, then your computer was probably set to local time.
 Optionally note if you have UEFI or BIOS, for you can change a setting in the disk section later if you know it.
 
-**Install Process**
+# Installing FreeBSD
 
 The US keymap is the default so if you're used to that then you can just hit enter, othewise, pick your keyboard.
 
