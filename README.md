@@ -3,10 +3,15 @@ FreeBSD is a great desktop and laptop OS if your hardware is supported.
 I prefer to run it in a way were I use tty and tiling Wayland compositors interchangeably. This is because it uses up less energy on laptops to run simple framebuffer ttys, and partially because I'm a minimalist. To do this reasonably, I use scrapers and mpv, which can display images and videos in tty. It can also play audio, which FreeBSD handles out of the box, using the mixer command to set volume.
 
 To install FreeBSD, go to the downloads: https://www.freebsd.org/where/
+
 First, check the checksums to make sure your FreeBSD image wasn't tampered with by getting the checksum from multiple sources, and run: 
-sha256sum -c CHECKSUM FreeBSD.iso
+
+**sha256sum -c CHECKSUM FreeBSD.iso**
+
 Once you get OK, you're safe to burn the image you chose to a CD or use dd to transfer the iso to a USB flash drive. On Linux, you can use fdisk -l among other commands to find out what drive is the flash drive, then use
-dd if=/path/to/FreeBSD.iso of=/dev/sd* bs=1M conv=sync status=progress
+
+**dd if=/path/to/FreeBSD.iso of=/dev/drive bs=1M conv=sync status=progress**
+
 to burn it. Run this as root with sudo or doas, or su if you want.
 If on Windows, then I personally prefer BalenaEtcher: https://etcher.balena.io/
 
@@ -15,7 +20,7 @@ Get the contents of this repo and store it somewhere else, like on another flash
 Now go into your UEFI or BIOS. Look up the brand and BIOS. You normally have to press Esc, F2, Del, or something like repeatedly when turning the computer on to get the UEFI or BIOS. Note the name of your drive and if your system time is set to UTC or local. If you were on Linux and were not dual booting, then it was probably set to UTC, however, if you're on Windows, then your computer was probably set to local time.
 Optionally note if you have UEFI or BIOS, for you can change a setting in the disk section later if you know it.
 
-Install:
+**Install Process**
 The US keymap is the default so if you're used to that then you can just hit enter, othewise, pick your keyboard.
 
 It's suggested but not required to make up a fake domain name to put as your hostname, e.g. 'homedesk.twoplustwoisfish.homedomain'. You could name your computer a simple 'fish' if you want.
