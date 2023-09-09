@@ -9,6 +9,5 @@ mv foot.ini /home/USER/.config/foot/
 curl https://raw.githubusercontent.com/mpv-player/mpv/master/TOOLS/lua/autoload.lua -o /home/USER/.config/mpv/autoload.lua
 mv image-input.conf /home/USER/.config/mpv/
 mv mpv.conf /home/USER/.config/mpv/
-mv pf.rules /usr/share/security/
 mv config /home/USER/.config/sway/
 chown -R USER:USER /home/USER/
