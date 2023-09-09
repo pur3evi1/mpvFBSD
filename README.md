@@ -3,7 +3,7 @@ FreeBSD is a great desktop and laptop OS if your hardware is supported.
 I prefer to run it in a way were I use tty and tiling Wayland compositors interchangeably. This is because it uses up less energy on laptops to run simple framebuffer ttys, and partially because I'm a minimalist. To do this reasonably, I use scrapers and mpv, which can display images and videos in tty. It can also play audio, which FreeBSD handles out of the box, using the mixer command to set volume.
 
 To install FreeBSD, go to the downloads: https://www.freebsd.org/where/
-Furst, check the checksums to make sure your FreeBSD image wasn't tampered with by getting the checksum from multiple sources, and run: 
+First, check the checksums to make sure your FreeBSD image wasn't tampered with by getting the checksum from multiple sources, and run: 
 sha256sum -c CHECKSUM FreeBSD.iso
 Once you get OK, you're safe to burn the image you chose to a CD or use dd to transfer the iso to a USB flash drive. On Linux, you can use fdisk -l among other commands to find out what drive is the flash drive, then use
 dd if=/path/to/FreeBSD.iso of=/dev/sd* bs=1M conv=sync status=progress
