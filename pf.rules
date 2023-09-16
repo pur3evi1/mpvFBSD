@@ -9,8 +9,10 @@ block in quick on re0 from any to 255.255.255.255
 block in quick log on re0 from { 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 255.255.255.255/32 } to any
 block quick proto { tcp, udp } from any port = 0 to any
 block quick proto { tcp, udp } from any to any port = 0
+block in quick on re0 from 192.168.1.1/24 to 192.168.1.238
+block in quick on re0 proto { tcp, udp } to port { 5353, 5354 }
 block in quick inet6 all
 block out quick inet6 all
 pass out inet proto icmp icmp-type { echoreq }
-pass out proto { tcp udp } to port { 53 80 123 443 8448 }
+pass out proto { tcp udp } to port { 53 123 443 8448 14004 14005 }
 pass out proto { udp } to port { 14000 14100 14101 14102 14103 14104 14105 14106 14107 14108 14109 14110 14111 14112 14113 14114 14115 14116 14117 14118 14119 14120 14121 14122 14123 14124 14125 14126 14127 14128 14129 14130 14131 }
