@@ -10,10 +10,10 @@ set $right l
 # Terminal emulator
 set $term foot
 # Application launcher
-set $menu exec wofi --show | xargs swaymsg exec --
+set $menu tofi-drun --font /usr/local/share/fonts/firacode/FiraCode-SemiBold.ttf | xargs swaymsg exec --
 
 # Display config. If you have a screen with really high resolution you'll have to set the scale to 1 for it to look normal.
-exec mpvpaper -o "no-audio loop geometry=100%:100%" '*' someimage.gif &
+exec mpvpaper -o "no-audio pause video-unscaled" '*' CyberPunkdavidRevoy.jpg &
 exec mako &
 # Remove garbage looks
 default_border none
