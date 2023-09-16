@@ -1,0 +1,12 @@
+width = 24%
+height= 24%
+background-color=#444444
+font=FiraCode
+font-size = 12
+text-color=#dca9a9
+selection-color=ec8d8d
+border-width=4
+outline-width=0
+border-color=#dca9a9
+corner-radius=4
+prompt-text="Search:"
