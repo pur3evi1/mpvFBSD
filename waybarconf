@@ -1,0 +1,24 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 12,
+    "margin-top": 8,
+
+    "modules-center": ["clock", "sway/workspaces", "tray"],
+
+    "sway/workspaces": {
+       "disable-scroll": true,
+       "all-outputs": false,
+       "format": "{name}"
+    },
+    "tray": {
+        "icon-size": 20,
+        "spacing": 10
+    },
+    "clock": {
+        // "timezone": "America/New_York",
+	"format": "{:%H%M}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y %m %d}",
+    }
+}
